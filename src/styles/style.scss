@@ -1,0 +1,124 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e3f2fd;
+}
+
+.container {
+  width: 780px;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 35px 40px;
+  background-color: #000;
+
+  & > header {
+    user-select: none;
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > .column {
+      display: flex;
+      align-items: center;
+
+      & > span {
+        font-weight: 500;
+        margin-right: 15px;
+        font-size: 1.19rem;
+      }
+
+      & > input {
+        accent-color: #ffff;
+      }
+
+      &.key-checks input {
+        width: 60px;
+        height: 30px;
+        appearance: none;
+        border-radius: 30px;
+        background-color: #4b4b4b;
+        cursor: pointer;
+        position: relative;
+
+        &:checked::before {
+          left: 2.1rem;
+          background-color: #ffffff;
+          transform: translateY(-50%);
+        }
+
+        &::before {
+          content: "";
+          color: white;
+          height: 20px;
+          width: 20px;
+          background-color: #8c8c8c;
+          position: absolute;
+          top: 50%;
+          left: 0.3rem;
+          border-radius: inherit;
+          transform: translateY(-50%);
+          transition: all 350ms ease;
+        }
+      }
+    }
+    & > h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  ul.piano-keys {
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    padding-top: 48px;
+    user-select: none;
+
+    // span {
+    //     position: absolute;
+    //     border-top: 1px solid #000;
+    // }
+
+    & > .key {
+      cursor: pointer;
+      list-style: none;
+      color: #a2a2a2;
+      position: relative;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 16px;
+
+      &.white {
+        width: 70px;
+        height: 230px;
+        background: linear-gradient(#fff 96%, #eee 4%);
+        border-radius: 8px;
+        &.active {
+          box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+          background: linear-gradient(to bottom #fff, #eee 100%);
+        }
+      }
+
+      &.black {
+        width: 44px;
+        height: 140px;
+        background: linear-gradient(#333, #000);
+        border-radius: 0 0 5px 5px;
+        z-index: 2;
+        margin: 0 -22px 0 -22px;
+        &.active {
+          box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1);
+          background: linear-gradient(to bottom #000, #434343 100%);
+        }
+      }
+    }
+  }
+}
+.hide span {
+    display: none;
+    transition: 250ms ease-in-out;
+}
